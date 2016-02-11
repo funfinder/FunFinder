@@ -1,0 +1,31 @@
+{
+  "name": "funfinder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/funfinder/FunFinder.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/funfinder/FunFinder/issues"
+  },
+  "homepage": "https://github.com/funfinder/FunFinder#readme",
+  "dependencies": {
+    "angular": "^1.5.0",
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "request": "^2.69.0"
+  },
+  "devDependencies": {
+    "browserify": "^13.0.0",
+    "gulp": "^3.9.1",
+    "gulp-uglify": "^1.5.2"
+  }
+}
