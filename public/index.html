@@ -3,24 +3,25 @@
 <head>
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-
+  <script src='./lib/angular-ui-router/release/angular-ui-router.js'></script>
   <script src='./script/entertain/entertainService.js'></script>
   <script src='./script/social/socialService.js'></script>
   <script src='./script/volunteer/volunteerService.js'></script>
   <script src='./dist/bundle.js'></script>
-
   <script src='./script/index.js'></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-
 </head>
 
-<body>
+<body  ng-app=''>
   <div class='container'>
     <div class='row'>
-    Hello World. Testing
+    Hello World Testing
+    <div ng-view></div>
   </div>
   </div>
 

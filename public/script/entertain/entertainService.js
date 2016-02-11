@@ -1,1 +1,1 @@
-angular.module('funfinder.entertain')
+angular.module('funfinder.entertain',[])
