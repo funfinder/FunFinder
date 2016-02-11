@@ -10,12 +10,12 @@ Team Member Setup
 5. 'git remote add upstream https://github.com/funfinder/FunFinder.git'
 
 Push new Feature
-1. git add
-2. git commit -m #Comment here#
+1. git add #filename#
+2. git commit -m #"[Feature/File] Add/Remove/Modify: short description"#
 3. git pull --rebase upstream development
-4. resolve conflict .
-5. git push origin #byour branch name#
+4. Resolve conflicts if any.
+5. git push origin #your branch name#
 6. pull request from github website to FunFinder: development Branch.
 
-Depoly
+Deploy
 1. Pull Request from development
