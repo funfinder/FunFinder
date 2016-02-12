@@ -1,10 +1,8 @@
 var express = require('express');
 var router = express.Router();
-
+var controller=require('./socialController')
 /* GET users listing. */
-router.route('/')
-  .get(function(req, res, next) {
-  console.log('Entertainment Module')
-  res.send('Entertainment Module');
-});
+router.route('/getAll')
+  .get(controller.getAll());
+
 module.exports = router;
