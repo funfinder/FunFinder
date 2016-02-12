@@ -6,7 +6,7 @@ var controller = require('./volunteerController.js');
 router.route('/getAll')
   .get(controller.getAll)
 
-router.route('/getOne')
-  .get(controller.getOne)
+// router.route('/getOne')
+//   .get(controller.getOne)
 //
 module.exports = router;
