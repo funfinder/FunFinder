@@ -1,2 +1,2 @@
 //factory module
-angular.module('funfinder.volunteer',[])
+angular.module('funfinder.volunteer.service',[])
