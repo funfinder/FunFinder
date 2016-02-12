@@ -1,11 +1,14 @@
-angular.module('funfinder',['funfinder.entertain',
-                            'funfinder.social',
-                            'funfinder.volunteer',
-                            'funfinder.main',
-                            'ui.router',
-                            'ui.bootstrap'])
+angular.module('funfinder', ['funfinder.entertain',
+  'funfinder.social',
+  'funfinder.volunteer',
+  'funfinder.main',
+  'funfinder.search',
+  'funfinder.result',
+  'ui.router',
+  'ui.bootstrap'
+  ])
 
-.config(function ($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
 
   $stateProvider
@@ -13,15 +16,34 @@ angular.module('funfinder',['funfinder.entertain',
     .state('index', {
       url: '',
       views: {
-        "main": { templateUrl: "/main/main.html" }
+        'main': {
+          templateUrl: "/main/main.html"
+        },
+        'search@index':{
+          templateUrl : '/main/search.html'
+        }
       }
     })
 
     //state for Search Page
-    .state('search',{
-      url:'/search',
+    .state('result', {
+      url: '/result',
       views: {
-        "main":{ templateUrl: "/main/search.html"  }
+        'main': {
+          templateUrl: "/main/result.html"
+        },
+        "search@result": {
+          templateUrl: "/main/search.html"
+        },
+        "entertain@result": {
+          templateUrl: "/script/entertain/entertain.html"
+        },
+        // "social@result": {
+        //   templateUrl: "/script/social/social.html"
+        // },
+        "volunteer@result": {
+          templateUrl: "/script/volunteer/volunteer.html"
+        }
       }
     });
- })
+  });
