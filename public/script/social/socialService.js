@@ -1,2 +1,2 @@
-angular.module('funfinder.social')
+angular.module('funfinder.social',[])
 
