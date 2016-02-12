@@ -3,6 +3,6 @@ var router = express.Router();
 var controller=require('./socialController')
 /* GET users listing. */
 router.route('/getAll')
-  .get(controller.getAll());
+  .get(controller.getAll);
 
 module.exports = router;
