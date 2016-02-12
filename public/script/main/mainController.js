@@ -1,5 +1,5 @@
 angular.module('funfinder.main', [])
 
-.controller('MainController', function($scope,$state) {
+.controller('MainController', function($scope) {
   $scope.searchQuery ={ dt: {} , location: ''};
 });
