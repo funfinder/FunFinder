@@ -1,6 +1,11 @@
 angular.module('funfinder.search', [])
 
-.controller('SearchController', function($scope,$state) {
+.controller('SearchController', function($scope,$state,$stateParams) {
+  //setup the date time object if being passed.
+  if (Object.keys($stateParams)>0)
+  {
+    $scope.searchQuery.dt = new Date($stateParams.dt);
+  }
 
   $scope.datePicker = {
       opened: false
@@ -26,7 +31,6 @@ angular.module('funfinder.search', [])
   $scope.toggleMin();
 
   $scope.openDatePicker = function() {
-      console.log('ya')
       $scope.datePicker.opened = true;
   };
 
@@ -57,6 +61,7 @@ angular.module('funfinder.search', [])
 
   $scope.search= function(){
     console.log('ya');
+    // var query = {location: $scope.location, date : }
     $state.go('result',$scope.searchQuery);
   };
 });

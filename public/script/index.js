@@ -1,4 +1,5 @@
-angular.module('funfinder', ['funfinder.entertain',
+angular.module('funfinder', ['funfinder.entertain.controller',
+  'funfinder.entertain.service',
   'funfinder.social.controller',
   'funfinder.social.service',
   'funfinder.volunteer.controller',
@@ -29,7 +30,7 @@ angular.module('funfinder', ['funfinder.entertain',
 
     //state for Search Page
     .state('result', {
-      url: '/result',
+      url: '/result/:location?dt',
       views: {
         'main': {
           templateUrl: "/main/result.html"
