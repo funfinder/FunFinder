@@ -1,17 +1,17 @@
 <div class='row' ng-controller="SearchController">
-    <div class="input-group">
-        <div class='col-sm-1'></div>
-        <div class='col-sm-4'>
-            <input type="text" class="form-control" placeholder="Location" ng-model='searchQuery.location'>
-        </div>
-        <div class="col-sm-3">
-            <p class="input-group">
-                <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="searchQuery.dt" is-open="datePicker.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
-                <span class="input-group-btn">
+  <div class="input-group">
+    <div class='col-sm-1'></div>
+    <div class='col-sm-4'>
+      <input type="text" class="form-control" placeholder="Location" ng-model='searchQuery.location'>
+    </div>
+    <div class="col-sm-3">
+      <p class="input-group">
+        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="searchQuery.dt" is-open="datePicker.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+        <span class="input-group-btn">
                 <button type="button" class="btn btn-default" ng-click="openDatePicker()"><i class="glyphicon glyphicon-calendar"></i></button>
               </span>
-            </p>
-        </div>
-        <button type='button' class='col-sm-2 btn btn-default' ng-click='search()'>Search</div>
+      </p>
+    </div>
+    <button type='button' class='col-sm-2 btn btn-default' ng-click='search()'>Search</div>
 </div>
 </div>
