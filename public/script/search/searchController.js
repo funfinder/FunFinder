@@ -1,42 +1,41 @@
 angular.module('funfinder.search', [])
 
-.controller('SearchController', function($scope,$state,$stateParams) {
+.controller('SearchController', function($scope, $state, $stateParams) {
   //setup the date time object if being passed.
-  if (Object.keys($stateParams)>0)
-  {
+  if (Object.keys($stateParams) > 0) {
     $scope.searchQuery.dt = new Date($stateParams.dt);
   }
 
   $scope.datePicker = {
-      opened: false
+    opened: false
   };
 
   $scope.today = function() {
-      $scope.searchQuery.dt = new Date();
+    $scope.searchQuery.dt = new Date();
   };
   $scope.today();
 
   $scope.clear = function() {
-      $scope.searchQuery.dt = null;
+    $scope.searchQuery.dt = null;
   };
 
   $scope.setDate = function(year, month, day) {
-      $scope.searchQuery.dt = new Date(year, month, day);
+    $scope.searchQuery.dt = new Date(year, month, day);
   };
 
   $scope.toggleMin = function() {
-      $scope.minDate = $scope.minDate ? null : new Date();
+    $scope.minDate = $scope.minDate ? null : new Date();
   };
 
   $scope.toggleMin();
 
   $scope.openDatePicker = function() {
-      $scope.datePicker.opened = true;
+    $scope.datePicker.opened = true;
   };
 
   $scope.dateOptions = {
-      formatYear: 'yy',
-      startingDay: 1
+    formatYear: 'yy',
+    startingDay: 1
   };
 
   $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
@@ -59,9 +58,9 @@ angular.module('funfinder.search', [])
   //   return '';
   // };
 
-  $scope.search= function(){
+  $scope.search = function() {
     console.log('ya');
     // var query = {location: $scope.location, date : }
-    $state.go('result',$scope.searchQuery);
+    $state.go('result', $scope.searchQuery);
   };
 });
