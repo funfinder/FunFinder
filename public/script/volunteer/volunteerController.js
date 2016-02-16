@@ -1,9 +1,9 @@
 //create module inject nothing
 angular.module('funfinder.volunteer.controller', [])
 
-.controller('VolunteerController', function($scope, volunteerService){
+.controller('VolunteerController', function($scope, VolunteerService){
   $scope.volOpsArray =[];
-  VolOpportunities.fetchVolOpportunities(function(data) {
+  VolunteerService.fetchVolOpportunities(function(data) {
     $scope.volOpsArray = data;
   });
 })

@@ -1,9 +1,9 @@
-// var app = require('./server-config.js');
+
 var express = require('express');
 var app = express();
 var routes = require('./server/route/routes');
-routes(app, express)
-// var app = require('./server-config.js');
+
+routes(app)
 var port = process.env.PORT || 5000;
 
 app.listen(port,function(){

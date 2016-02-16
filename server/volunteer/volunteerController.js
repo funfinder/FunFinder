@@ -9,14 +9,13 @@ var http = require('http');
 
 // GET /api/call?action=helloWorld&query=... HTTP/1.1
 
+//# modified to fix all the applciation issue....
 var headers = {
     'Host': 'www.volunteermatch.org',
     'Accept-Charset': 'UTF-8',
-    'Content-Type': application/json,
+    'Content-Type': 'application/json',
     'Authorization': 'WSSE profile="UsernameToken"',
-    'X-WSSE':'UsernameToken Username="FunFinder",
-    PasswordDigest="quR/EWLAV4xLf9Zqyw4pDmfV9OY=", Nonce=
-    "3d711ec9bee2f445ac2292726d7ea854", Created="2003-12-15T14:43:07-0700"'
+    'X-WSSE':'UsernameToken Username="FunFinder",PasswordDigest="quR/EWLAV4xLf9Zqyw4pDmfV9OY=", Nonce="3d711ec9bee2f445ac2292726d7ea854", Created="2003-12-15T14:43:07-0700"'
 
 };
 
