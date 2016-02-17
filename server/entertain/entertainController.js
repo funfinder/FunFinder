@@ -33,7 +33,7 @@ module.exports = {
           movieArray.push(movie);
         }
 
-        console.log("this is the response from the server", body)
+        // console.log("this is the response from the server", body)
         res.send(movieArray)
       }
     })
