@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Meet Up</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css" />
+     <script src="../../../node_modules/angular/angular.js"></script>
+  </head>
+  <body ng-controller='socialController'>
+    <h1>Meet Up</h1>
+    <form name="dateInput" ng-submit='getByDates()'>
+    begin date:<input type='text' ng-model='begindate'>
+    end date:<input type='text' ng-model='enddate'>
+    <button>Submit Date</button>
+    </form>
+    <h1>OR</h1>
+    <form name="placeInput" ng-submit='getByPlace()'>
+    zip:<input type='text' ng-model='zip'>
+    radius:<input type='text' ng-model='radius'>
+    <button>Submit Place</button>
+    </form>
+    <h1>OR</h1>
+
+    <form name="groupInput" ng-submit='getByGrp()'>
+    group name:<input type='text' ng-model='grpname'>
+    <button>Submit Group Name</button>
+    </form>
+
+   
+    <!-- the ng-view directive is where our templates will be loaded into when navigated to -->
+    <div ></div>
+    <script src='socialController.js'></script>
+    <script src='socialService.js'></script>
+   
+  </body>
+</html>
