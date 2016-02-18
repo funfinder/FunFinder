@@ -7,23 +7,24 @@
      <script src="../../../node_modules/angular/angular.js"></script>
   </head>
   <body ng-controller='socialController'>
-    <h1>Meet Up</h1>
-    <form name="dateInput" ng-submit='getByDates()'>
+    <h1>Meet Up-Open Events</h1>
+    <form name="dateInput" ng-submit='getByDateLoc()'>
+    <h1>date input format 1d for 1 day, 2w for 2 weeks, 3m for 3 months</h1>
     begin date:<input type='text' ng-model='begindate'>
     end date:<input type='text' ng-model='enddate'>
-    <button>Submit Date</button>
-    </form>
-    <h1>OR</h1>
-    <form name="placeInput" ng-submit='getByPlace()'>
     zip:<input type='text' ng-model='zip'>
     radius:<input type='text' ng-model='radius'>
-    <button>Submit Place</button>
+    <button>Submit Date and Place</button>
     </form>
+   
     <h1>OR</h1>
-
-    <form name="groupInput" ng-submit='getByGrp()'>
+    <h1>All Meet Up Events-Open or Closed</h1>
+    <form name="groupInput" ng-submit='getByNameGrp()'>
+    <h1>date input format 1d for 1 day, 2w for 2 weeks, 3m for 3 months</h1>
+    begin date:<input type='text' ng-model='begindate'>
+    end date:<input type='text' ng-model='enddate'>
     group name:<input type='text' ng-model='grpname'>
-    <button>Submit Group Name</button>
+    <button>Submit Date and Group Name</button>
     </form>
 
    

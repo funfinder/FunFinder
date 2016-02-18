@@ -4,7 +4,6 @@ var controller=require('./socialController')
 
 //#Modify to use Dependency Injection from route.js
 module.exports = function(router) {
-  router.get('/byDate/:begin-end',controller.getAllByDate);
-  router.get('/byPlace/:zipcode-radius',controller.getAllByPlace);
-  router.get('/byGroup/:groupname',controller.getAllByGroup);
+  router.get('/byDatesPlace/:begin-end/zip-radius',controller.getAllByDatesPlace);
+  router.get('/byDatesGroup/:begin-end/groupname',controller.getAllByDatesGroup);
 }
