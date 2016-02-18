@@ -1,29 +1,23 @@
 angular.module('funfinder.social.service',[])
 .factory('GetReq', function($http){
 
-	var retrieveByDate=function(begin,end){
+	var retrieveByDatePlace=function(begin,end,zip,radius){
 		return $http({
 			method: 'GET',
-			url: 'http://127.0.0.1:5000/byDate/:'+begin+'-'+end
+			url: 'http://127.0.0.1:5000/byDatesPlace/:'+begin+'-'+end+'/'+zip+'-'+radius
 		});
 	};
 
-	var retrieveByPlace=function(zipcode,radius){
+	
+	var retrieveByDateGrp=function(begin,end,groupname){
 		return $http({
 			method: 'GET',
-			url: 'http://127.0.0.1:5000/byPlace/:'+zipcode+'-'+radius
-		});
-	};
-	var retrieveByGrp=function(groupname){
-		return $http({
-			method: 'GET',
-			url: 'http://127.0.0.1:5000/byGroup/:'+groupname
+			url: 'http://127.0.0.1:5000/byDatesGroup/:'+begin+'-'+end+'/'+groupname
 		});
 	};
 	return{
-         retrieveByDate: retrieveByDate,
-         retrieveByPlace:retrieveByPlace,
-         retrieveByGrp:retrieveByGrp
+         retrieveByDatePlace: retrieveByDatePlace,
+         retrieveByDateGrp:retrieveByDateGrp
 	};
 });
 
