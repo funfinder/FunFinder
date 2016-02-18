@@ -6,14 +6,14 @@ module.exports={
 
 
       res.send();
-    };
+    },
 
     getAllByPlace: function(req,res,next){
 
-    };
+    },
 
     getAllByGroup:function(req,res,next){
 
-    };
+    }
 
 };
