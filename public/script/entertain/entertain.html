@@ -1,5 +1,14 @@
-<div> <!--do I need ng-controller here?  -->
+<!--<div> do I need ng-controller here?  
   <li ng-repeat="movie in movieArray">
     {{movie.title}} {{movie.theatre}} {{movie.description}}
   </li>
+</div>-->
+
+
+<div ng-controller = "entertainController">
+
+  <li ng-repeat="movie in movieArray">
+      {{ movie }}
+  </li>
+
 </div>
