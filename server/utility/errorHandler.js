@@ -2,9 +2,8 @@ var express = require('express');
 
 module.exports = function(app) {
 
-  app.use()
-
-
+  app.use(logErrors);
+  app.use(errorHandler);
 
   function logErrors(err, req, res, next) {
     console.log(err.stack);
@@ -12,7 +11,10 @@ module.exports = function(app) {
   }
 
   function errorHandler(err, req, res, next) {
-
+    res.status(err.status || 500);
+    res.render('error', {
+        message: err.message,
+        error: err
+    });
   }
-
-}
+};
