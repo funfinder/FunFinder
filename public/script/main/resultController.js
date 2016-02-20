@@ -3,8 +3,10 @@ angular.module('funfinder.result', [])
 .controller('ResultController', function($scope, $state, $stateParams) {
   $scope.searchQuery = {
     dt: {},
-    location: ''
+  	zip: '',
+    city: '',
+    state: ''
   };
-  $scope.searchQuery.location = $stateParams.location;
+  
 
 });

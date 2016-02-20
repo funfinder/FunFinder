@@ -17,7 +17,7 @@ angular.module('funfinder', ['funfinder.entertain.controller',
   $stateProvider
     //state for index html
     .state('index', {
-      url: '',
+      url: '/',
       views: {
         'main': {
           templateUrl: "/main/main.html"
@@ -30,7 +30,7 @@ angular.module('funfinder', ['funfinder.entertain.controller',
 
     //state for Search Page
     .state('result', {
-      url: '/result/:location?dt',
+      url: '/result/:city?state?zip?dt',
       views: {
         'main': {
           templateUrl: "/main/result.html"
@@ -40,10 +40,10 @@ angular.module('funfinder', ['funfinder.entertain.controller',
         },
         "entertain@result": {
           templateUrl: "/script/entertain/entertain.html"
-        }//,
-        // "social@result": {
-        //   templateUrl: "/script/social/social.html"
-        // },
+        },
+         "social@result": {
+           templateUrl: "/script/social/social.html"
+         }
         // "volunteer@result": {
         //   templateUrl: "/script/volunteer/volunteer.html"
         // }
