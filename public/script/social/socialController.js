@@ -24,17 +24,18 @@ angular.module('funfinder.social.controller',[])
 	console.log(beginms);
 	console.log(endms);
 
-	$scope.getByDatesPlace=function(){
-		 GetReq.retrieveByDatePlace($scope.begindate,$scope.enddate,$scope.zip,$scope.radius).then(function(data){
-          console.log(data);
-       });
+	$scope.getData=function(){
+	   GetReq.getMeetUp(city,state,beginms,endms).then(function(data){
 
+     
+       });
 	};
 
-	$scope.getByDatesGrp=function(){
-		GetReq.retrieveByGrp($scope.begindate,$scope.enddate,$scope.grpname).then(function(data){
-          console.log(data);
-        });
+	$scope.getDataZip=function(){
+	   GetReq.getMeetUpZip(zip,beginms,endms).then(function(data){
+
+     
+       });
 	};
 
 });
