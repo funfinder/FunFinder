@@ -11,12 +11,12 @@ angular.module('funfinder.social.controller',[])
 	console.log(date);
 	beginDate=new Date(date);
 	var endDate=new Date(date);
-	beginDate.setHours(23);
-	beginDate.setMinutes(59);
-	beginDate.setSeconds(59);
-	endDate.setHours(00);
-	endDate.setMinutes(00);
-	endDate.setSeconds(00);
+	beginDate.setHours(00);
+	beginDate.setMinutes(00);
+	beginDate.setSeconds(00);
+	endDate.setHours(23);
+	endDate.setMinutes(59);
+	endDate.setSeconds(59);
 	console.log(beginDate);
 	console.log(endDate);
 	beginms=beginDate.getTime();
@@ -37,5 +37,7 @@ angular.module('funfinder.social.controller',[])
      
        });
 	};
+
+	$scope.getData();
 
 });
