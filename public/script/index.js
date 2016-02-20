@@ -38,9 +38,9 @@ angular.module('funfinder', ['funfinder.entertain.controller',
         "search@result": {
           templateUrl: "/main/search.html"
         },
-        "entertain@result": {
-          templateUrl: "/script/entertain/entertain.html"
-        },
+        // "entertain@result": {
+        //   templateUrl: "/script/entertain/entertain.html"
+        // },
         // "social@result": {
         //   templateUrl: "/script/social/social.html"
         // },
