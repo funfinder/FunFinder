@@ -9,8 +9,20 @@ angular.module('funfinder.social.controller',[])
 	console.log(state);
 	console.log(zip);
 	console.log(date);
-	date=new Date(date);
-	var today=new Date();
+	beginDate=new Date(date);
+	var endDate=new Date(date);
+	beginDate.setHours(23);
+	beginDate.setMinutes(59);
+	beginDate.setSeconds(59);
+	endDate.setHours(00);
+	endDate.setMinutes(00);
+	endDate.setSeconds(00);
+	console.log(beginDate);
+	console.log(endDate);
+	beginms=beginDate.getTime();
+	endms=endDate.getTime();
+	console.log(beginms);
+	console.log(endms);
 
 	$scope.getByDatesPlace=function(){
 		 GetReq.retrieveByDatePlace($scope.begindate,$scope.enddate,$scope.zip,$scope.radius).then(function(data){
