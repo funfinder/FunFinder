@@ -2,7 +2,7 @@ angular.module('funfinder.social.controller',[])
 .controller('socialController',function($scope,GetReq,$stateParams){
 
 	var zip=$scope.searchQuery.location;
-	var date=$stateParams.dt;
+	var date=$scope.searchQuery.dt;
 	console.log(zip,'zip');
 	console.log(date);
 	beginDate=new Date(date);
@@ -32,7 +32,10 @@ angular.module('funfinder.social.controller',[])
 	   GetReq.getMeetUpZip(zip,beginms,endms).then(function(data){
 	   	console.log('inside client controller');
 	    console.log(data);
-	    $scope.mydata=data;
+	    if (Array.isArray(data['data'])===false){
+	    	$scope.mydata=data['data'];
+	    }
+	    
      
        });
 	};

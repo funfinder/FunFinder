@@ -2,18 +2,20 @@ angular.module('funfinder.search', [])
 
 .controller('SearchController', function($scope, $state, $stateParams) {
   //setup the date time object if being passed.
-  if (Object.keys($stateParams) > 0) {
-    $scope.searchQuery.dt = new Date($stateParams.dt);
+  $scope.today = function() {
+    $scope.searchQuery.dt = new Date();
+  };
+  if (Object.keys($stateParams).length >0) {
+        $scope.searchQuery.dt = new Date($stateParams.dt);
+  }
+  else
+  {
+    $scope.today();
   }
 
   $scope.datePicker = {
     opened: false
   };
-
-  $scope.today = function() {
-    $scope.searchQuery.dt = new Date();
-  };
-  $scope.today();
 
   $scope.clear = function() {
     $scope.searchQuery.dt = null;
@@ -60,6 +62,7 @@ angular.module('funfinder.search', [])
 
   $scope.search = function() {
     console.log('ya');
+    console.log($scope.searchQuery);
     // var query = {location: $scope.location, date : }
     $state.go('result', $scope.searchQuery);
   };
