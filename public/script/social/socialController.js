@@ -1,9 +1,9 @@
 angular.module('funfinder.social.controller',[])
 .controller('socialController',function($scope,GetReq,$stateParams){
 
-	var zip=$stateParams.location;
+	var zip=$scope.searchQuery.location;
 	var date=$stateParams.dt;
-	console.log(zip);
+	console.log(zip,'zip');
 	console.log(date);
 	beginDate=new Date(date);
 	var endDate=new Date(date);
@@ -19,6 +19,7 @@ angular.module('funfinder.social.controller',[])
 	endms=endDate.getTime();
 	console.log(beginms);
 	console.log(endms);
+	$scope.mydata='';
 
 	// $scope.getData=function(){
 	//    GetReq.getMeetUp(city,state,beginms,endms).then(function(data){
@@ -29,7 +30,9 @@ angular.module('funfinder.social.controller',[])
 
 	$scope.getDataZip=function(){
 	   GetReq.getMeetUpZip(zip,beginms,endms).then(function(data){
-
+	   	console.log('inside client controller');
+	    console.log(data);
+	    $scope.mydata=data;
      
        });
 	};
