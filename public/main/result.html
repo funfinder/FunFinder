@@ -1,10 +1,23 @@
+
 <div ng-controller="ResultController" class='container'>
-  <div class='row'>
-    <div ui-view='search'></div>
-  </div>
-  <div class='row'>
-    <div class='col-sm-4' ui-view='entertain'></div>
-    <div class='col-sm-4' ui-view='volunteer'></div>
-    <div class='col-sm-4' ui-view='social'></div>
+  <div ui-view='search'></div>
+  <div id="results">
+    <table>
+      <td>
+        <div class='module'>Entertainment</div>
+          <div ui-view='entertain'>
+          </div>
+
+      </td>
+      <td>
+        <div class='module'>Volunteer</div>
+          <div ui-view='volunteer'></div>
+
+      </td>
+      <td>
+        <div class='module'>Social</div>
+          <div ui-view='social'></div>
+      </td>
+    </table>
   </div>
 </div>
