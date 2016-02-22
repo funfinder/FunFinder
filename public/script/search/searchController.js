@@ -4,9 +4,10 @@ angular.module('funfinder.search', [])
   //setup the date time object if being passed.
   $scope.today = function() {
     $scope.searchQuery.dt = new Date();
+
   };
-  if (Object.keys($stateParams).length >0) {
-        $scope.searchQuery.dt = new Date($stateParams.dt);
+  if (Object.keys($stateParams).length >0 && $stateParams.dt > Date()) {
+    $scope.searchQuery.dt = new Date($stateParams.dt);
   }
   else
   {
