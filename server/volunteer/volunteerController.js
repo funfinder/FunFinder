@@ -1,10 +1,6 @@
 
 var request=require('request');
 
-
-
-
-
 module.exports = {
 
   getAll: function (req, res, next) {
@@ -27,21 +23,11 @@ module.exports = {
       if (!error && response.statusCode === 200) {
         var volOpsArray = [];
         volBody = JSON.parse(volBody);
-        // console.log("NAME " + volBody.top_match_events[i]["name"]["text"]);
-        // console.log("DESCRITION " + volBody.top_match_events[i]["description"]["text"]);
-        // console.log("WHEN " + volBody.top_match_events[i]["start"]["local"]);
-        // console.log("volBody "+ volBody[top_match_events]);
-        // console.log("volBody.start.local " + volBody[top_match_events][start][local]);
-        // console.log("volBody[1] "+ volBody[1]);
 
         for (var i = 0; i < 5; i++) {
           var output = [];
           //push name of event to output array
           output.push(volBody.top_match_events[i]["name"]["text"]);
-
-          
-
-
 
            //function to shorten descritions
               var textShortener = function(x) { 
@@ -64,7 +50,6 @@ module.exports = {
           output.push(description);
 
            //push start time of event to output
-
 
           //the below code is converting the date+time string the API is returning into a more friendly version of both
           var convertTime = function(time) {
