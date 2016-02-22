@@ -1,13 +1,14 @@
-var request = require('request')
+var request = require('request');
 
 //call the api here
 //give the response from the api to the model on the public side
 
 module.exports = {
   getAll: function(req, res, next) {
+    console.log('thomas query' ,req.query)
     var date = req.query.dt.slice(0,11)
     //need to change this start date  and zip code to match user entry
-    request('http://data.tmsapi.com/v1.1/movies/showings?startDate=' + date + '&zip=' + req.query.location + '&api_key=', function(error, response, body) {
+    request('http://data.tmsapi.com/v1.1/movies/showings?startDate=' + date + '&zip=' + req.query.location + '&api_key=4d9qk2nptvxkfg2bydfhrdrn', function(error, response, body) {
       if(!error && response.statusCode === 200) {
         var movieArray = [];
         var convertTime = function(time) {
