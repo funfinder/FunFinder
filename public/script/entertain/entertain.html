@@ -7,15 +7,18 @@
 
 <div ng-controller = "MovieController">
 
-  <ul ng-repeat="movie in movieArray">
+  <li ng-repeat="movie in movieArray">
     <div class="title">
-      <h2>{{movie.title}}<h2> 
+      <br>
+      {{movie.title}} 
+    </div>
+
       <br>
       {{movie.description}}
-      <br>
+      <br><br>
+
       {{movie.theatre}}
-    </div>
-    <br>
-  </ul>
+      <br><br>
+  </li>
 
 </div>
