@@ -13,13 +13,12 @@ module.exports = {
 
     var APIcall = "https://www.eventbriteapi.com/v3/events/search/?token=YGAXTF3CVBJD74VGIJVL&q=%22volunteer%22&location.address=%"
     APIcall = APIcall+address;
-    console.log("NWO APIcall " + APIcall);
-    // // console.log(searchQuery.dt);
+
     request (APIcall, 
     // request('https://www.eventbriteapi.com/v3/events/search/?token=YGAXTF3CVBJD74VGIJVL&q=%22volunteer%22&location.address=%22San%20Francisco%22', 
 
     function(error, response, volBody) {
-      console.log(error);
+
       if (!error && response.statusCode === 200) {
         var volOpsArray = [];
         volBody = JSON.parse(volBody);
