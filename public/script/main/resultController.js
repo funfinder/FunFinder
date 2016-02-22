@@ -5,6 +5,6 @@ angular.module('funfinder.result', [])
     dt: {},
     location: ''
   };
-  $scope.searchQuery= $stateParams;
+  $scope.searchQuery.location = $stateParams.location;
 
 });
