@@ -5,10 +5,11 @@
 angular.module('funfinder.entertain.service',[])
 
 .factory('Movies', function ($http) {
-  var fetchMovies = function (callback) {
+  var fetchMovies = function (searchQuery,callback) {
     return $http({
       method: 'GET',
-      url: '/entertain/getAll'
+      url: '/entertain/getAll',
+      params: searchQuery
     })
     .then(function (resp) {
       return callback(resp.data);
