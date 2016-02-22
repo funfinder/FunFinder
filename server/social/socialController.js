@@ -3,15 +3,15 @@ var rp=require("request-promise");
 module.exports={
 
     getAll: function(req, res, next){
-    	console.log("in here");
+    	// console.log("in here");
     	var city=req.params.city.slice(1);
     	var state=req.params.state.slice(1);
-    	console.log(city);
-    	console.log(state);
+    	// console.log(city);
+    	// console.log(state);
     	var beginms=req.params.beginTime.slice(1);
     	var endms=req.params.endTime.slice(1);
-    	console.log(beginms);
-    	console.log(endms);
+    	// console.log(beginms);
+    	// console.log(endms);
         
 
         // rp("http://api.zippopotam.us/us/"+state+'/'+city)
@@ -40,20 +40,20 @@ module.exports={
     },
 
     getAllZip:function(req,res,next){
-    	console.log("inside get all zip");
-        console.log("in here");
+    	// console.log("inside get all zip");
+     //    console.log("in here");
         var zip=req.params.zip.slice(1);
-        console.log(zip);
+        // console.log(zip);
         var beginms=req.params.beginTime.slice(1);
         var endms=req.params.endTime.slice(1);
-        console.log(beginms);
-        console.log(endms);
-        var apiStr='https://api.meetup.com/2/open_events?key=562e4b82c1d1534424d481661495237&zip='+zip+'&time='+beginms+','+endms+'&radius=10&sign=true';
+        // console.log(beginms);
+        // console.log(endms);
+        var apiStr='https://api.meetup.com/2/open_events?key=562e4b82c1d1534424d481661495237&zip='+zip+'&time='+beginms+','+endms+'&radius=10&text_format=plain&sign=true';
         rp(apiStr).then(function(htmlStr){
-            console.log(typeof htmlStr);
+
             htmlStr=JSON.parse(htmlStr);
             var openEvents=htmlStr['results'];
-            console.log(htmlStr['results']);
+           
             res.json(openEvents);
 
 

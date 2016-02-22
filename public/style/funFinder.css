@@ -124,3 +124,8 @@ li {
   /*background-color: #DEB887;*/
   float: top;
 }
+
+.eachEvent{
+   width: 100%;
+   height: 10%;
+}
