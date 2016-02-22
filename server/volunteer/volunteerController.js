@@ -31,7 +31,11 @@ module.exports = {
            output.push(body.events[i]["name"]["text"]);
 
            //function to shorten descritions
-              var textShortener = function(x) {          
+              var textShortener = function(x) { 
+              if (x === " ") {
+                console.log("no text");
+                return "";
+              }         
                var clippedText = "";
                for (var i = 0; i < 200; i++) {
                 clippedText= clippedText + x[i];
@@ -40,6 +44,7 @@ module.exports = {
                return clippedText;
              };
              //push first 200 characters of description to output
+
           var description = textShortener(body.events[i]["description"]["text"]);
           //descriptions from EventBrite have \n's sprinkled in, the below line will remove these
           description = description.replace(/(\r\n|\n|\r)/gm,"");

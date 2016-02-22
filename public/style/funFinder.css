@@ -73,6 +73,7 @@ table{
 
 td {
   width: 20%;
+  vertical-align: top;
   /*border: 1px solid white;*/
 }
 
