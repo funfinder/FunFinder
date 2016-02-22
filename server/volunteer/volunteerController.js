@@ -23,16 +23,25 @@ module.exports = {
     // request('https://www.eventbriteapi.com/v3/events/search/?token=YGAXTF3CVBJD74VGIJVL&q=%22volunteer%22&location.address=%22San%20Francisco%22', 
 
     function(error, response, volBody) {
+      console.log(error);
       if (!error && response.statusCode === 200) {
         var volOpsArray = [];
         volBody = JSON.parse(volBody);
-        console.log("volBody[0] "+ volBody[0]);
-        console.log("volBody[1] "+ volBody[1]);
+        // console.log("NAME " + volBody.top_match_events[i]["name"]["text"]);
+        // console.log("DESCRITION " + volBody.top_match_events[i]["description"]["text"]);
+        // console.log("WHEN " + volBody.top_match_events[i]["start"]["local"]);
+        // console.log("volBody "+ volBody[top_match_events]);
+        // console.log("volBody.start.local " + volBody[top_match_events][start][local]);
+        // console.log("volBody[1] "+ volBody[1]);
 
         for (var i = 0; i < 5; i++) {
           var output = [];
           //push name of event to output array
-           output.push(volBody.events[i]["name"]["text"]);
+          output.push(volBody.top_match_events[i]["name"]["text"]);
+
+          
+
+
 
            //function to shorten descritions
               var textShortener = function(x) { 
@@ -49,8 +58,8 @@ module.exports = {
              };
              //push first 200 characters of description to output
 
-          var description = textShortener(volBody.events[i]["description"]["text"]);
-          //descriptions from EventBrite have \n's sprinkled in, the below line will remove these
+          var description = textShortener(volBody.top_match_events[i]["description"]["text"]);
+          // descriptions from EventBrite have \n's sprinkled in, the below line will remove these
           description = description.replace(/(\r\n|\n|\r)/gm,"");
           output.push(description);
 
@@ -67,7 +76,7 @@ module.exports = {
               }
               return hours + minutes + "am";
           }
-            var dateAndTime = volBody.events[i]["start"]["local"];
+            var dateAndTime = volBody.top_match_events[i]["start"]["local"];
             var date = dateAndTime.slice(0, 10);
             var time = dateAndTime.slice(11, 16);
 
