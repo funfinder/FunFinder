@@ -2,11 +2,25 @@
 var request=require('request');
 
 
+
 module.exports = {
 
   getAll: function (req, res, next) {
-    console.log('volunteer getAll called')
-    request('https://www.eventbriteapi.com/v3/events/search/?token=YGAXTF3CVBJD74VGIJVL&q=%22volunteer%22&location.address=%22San%20Francisco%22', function(error, response, body) {
+    req.query;
+    console.log("NWO req.query " + req.query);
+    console.log("NWO req.query.location " + req.query.location);
+    console.log("NWO req.query.dt " + req.query.dt);
+    // console.log('NWO volunteer getAll called')
+
+    // var APIcall = "https://www.eventbriteapi.com/v3/events/search/?token=YGAXTF3CVBJD74VGIJVL&q=%22volunteer%22&location.address=%";
+    var APIcall = "https://www.eventbriteapi.com/v3/events/search/?token=YGAXTF3CVBJD74VGIJVL&q=%22volunteer%22&location.address=%"
+    APIcall = APIcall+req.query.location;
+    console.log("NWO APIcall " + APIcall);
+    // console.log(searchQuery.dt);
+
+    request(APIcall, 
+    // request('https://www.eventbriteapi.com/v3/events/search/?token=YGAXTF3CVBJD74VGIJVL&q=%22volunteer%22&location.address=%22San%20Francisco%22', 
+      function(error, response, body) {
       if (!error && response.statusCode === 200) {
         var volOpsArray = [];
         body = JSON.parse(body);
