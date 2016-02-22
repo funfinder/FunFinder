@@ -1,23 +1,16 @@
-// angular.module('funfinder', ['funfinder.entertain.controller',
-//   'funfinder.entertain.service',
-//   'funfinder.social.controller',
-//   'funfinder.social.service',
-//   'funfinder.volunteer.controller',
-//   'funfinder.volunteer.service',
-//   'funfinder.main',
-//   'funfinder.search',
-//   'funfinder.result',
-//   'ui.router',
-//   'ui.bootstrap'
-//   ])
 angular.module('funfinder', ['funfinder.entertain.controller',
   'funfinder.entertain.service',
+  'funfinder.social.controller',
+  'funfinder.social.service',
+  'funfinder.volunteer.controller',
+  'funfinder.volunteer.service',
   'funfinder.main',
   'funfinder.search',
   'funfinder.result',
   'ui.router',
   'ui.bootstrap'
   ])
+
 .config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
 
