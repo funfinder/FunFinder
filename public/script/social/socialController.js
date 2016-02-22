@@ -29,6 +29,10 @@ angular.module('funfinder.social.controller',[])
      
  //       });
 	// };
+	 // $scope.goLogin = function() {
+	 // 	console.log("clicked on an event");
+  //       $location.url('http://google.com/');
+  //   };
 
 	$scope.getDataZip=function(){
 	   GetReq.getMeetUpZip(zip,beginms,endms).then(function(data){
@@ -43,6 +47,7 @@ angular.module('funfinder.social.controller',[])
             description=description.slice(0,200);
             description+='.....';
             description=description.replace(/&nbsp/gi, "");
+            description=description.replace(/&gt/gi, "");
             return description;
 	    };
 
@@ -60,6 +65,7 @@ angular.module('funfinder.social.controller',[])
 	        $scope.socialArr[i]['country']=$scope.mydata[i]['venue']['country'].toUpperCase();
 	        $scope.socialArr[i]['zip']=$scope.mydata[i]['venue']['zip'];
 	        $scope.socialArr[i]['time']=$scope.mydata[i]['time'];
+	        $scope.socialArr[i]['url']=$scope.mydata[i]['event_url'];
             $scope.socialArr[i]['address']=$scope.socialArr[i]['venueName']+'\n'+$scope.socialArr[i]['address']+', '+$scope.socialArr[i]['city']+', '+$scope.socialArr[i]['state']+' '+$scope.socialArr[i]['country'];
 	        	
 	    }
