@@ -11,9 +11,8 @@ module.exports = {
         var volOpsArray = [];
         body = JSON.parse(body);
 
-        for (var i = 0; i < 6; i++) {
+        for (var i = 0; i < 5; i++) {
           var output = [];
-          output.push("EVENT " + i);
           //push name of event to output array
            output.push(body.events[i]["name"]["text"]);
 
