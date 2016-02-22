@@ -26,7 +26,7 @@ module.exports = {
           var convertedTime = convertTime(body[i].showtimes[0].dateTime.slice(11))
           movie.title = body[i].title;
           movie.description = description;
-          movie.name = body[i].showtimes[0].theatre.name;
+          movie.theatre = body[i].showtimes[0].theatre.name;
           movie.time = convertedTime;
 
           movieArray.push(movie);
