@@ -5,8 +5,8 @@ angular.module('funfinder.volunteer.service',[])
 
 //#Factory name is the name you inject into other module and being used in other place.
 //So remember to use what's inside the quotion in other place you want to use.
-.factory('VolunteerService', function($http, callback) {
-  var fetchVolOpportunities =function() {
+.factory('VolunteerService', function($http) {
+  var fetchVolOpportunities =function(callback) {
     return $http({
       method: 'GET',
       url: '/volunteer/getAll'

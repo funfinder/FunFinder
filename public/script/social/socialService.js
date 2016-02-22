@@ -11,7 +11,7 @@ var getMeetUpZip=function(zip, beginTime, endTime){
 
   return $http({
 	method: 'GET',
-    url: 'http://127.0.0.1:5000/social/:'+zip+'/:'+beginTime+'/:'+endTime
+    url: '/social/:'+zip+'/:'+beginTime+'/:'+endTime
    });
 };
        return {
