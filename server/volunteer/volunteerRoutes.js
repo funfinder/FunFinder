@@ -3,7 +3,6 @@
 var controller = require('./volunteerController.js');
 
 module.exports = function(router) {
-  console.log("in volunteer routes");
   router.get('/getAll', controller.getAll);
 }
 

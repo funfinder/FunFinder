@@ -3,32 +3,45 @@ var request=require('request');
 
 
 
+
+
 module.exports = {
 
   getAll: function (req, res, next) {
     req.query;
-    console.log("NWO req.query " + req.query);
-    console.log("NWO req.query.location " + req.query.location);
-    console.log("NWO req.query.dt " + req.query.dt);
-    // console.log('NWO volunteer getAll called')
+//the below request incorporates googleMaps API to convert zip code (input) into a city, since this API doesn't have a query for zip codes
+    request('http://maps.googleapis.com/maps/api/geocode/json?address='+req.query.location+'&sensor=true',function(error, response, body){
+        if (!error && response.statusCode === 200) { 
+          body = JSON.parse(body);
+          address = body.results[0].address_components[1].long_name;
 
-    // var APIcall = "https://www.eventbriteapi.com/v3/events/search/?token=YGAXTF3CVBJD74VGIJVL&q=%22volunteer%22&location.address=%";
     var APIcall = "https://www.eventbriteapi.com/v3/events/search/?token=YGAXTF3CVBJD74VGIJVL&q=%22volunteer%22&location.address=%"
-    APIcall = APIcall+req.query.location;
+    APIcall = APIcall+address;
     console.log("NWO APIcall " + APIcall);
-    // console.log(searchQuery.dt);
-
-    request(APIcall, 
+    // // console.log(searchQuery.dt);
+    request (APIcall, 
     // request('https://www.eventbriteapi.com/v3/events/search/?token=YGAXTF3CVBJD74VGIJVL&q=%22volunteer%22&location.address=%22San%20Francisco%22', 
-      function(error, response, body) {
+
+    function(error, response, volBody) {
+      console.log(error);
       if (!error && response.statusCode === 200) {
         var volOpsArray = [];
-        body = JSON.parse(body);
+        volBody = JSON.parse(volBody);
+        // console.log("NAME " + volBody.top_match_events[i]["name"]["text"]);
+        // console.log("DESCRITION " + volBody.top_match_events[i]["description"]["text"]);
+        // console.log("WHEN " + volBody.top_match_events[i]["start"]["local"]);
+        // console.log("volBody "+ volBody[top_match_events]);
+        // console.log("volBody.start.local " + volBody[top_match_events][start][local]);
+        // console.log("volBody[1] "+ volBody[1]);
 
         for (var i = 0; i < 5; i++) {
           var output = [];
           //push name of event to output array
-           output.push(body.events[i]["name"]["text"]);
+          output.push(volBody.top_match_events[i]["name"]["text"]);
+
+          
+
+
 
            //function to shorten descritions
               var textShortener = function(x) { 
@@ -45,8 +58,8 @@ module.exports = {
              };
              //push first 200 characters of description to output
 
-          var description = textShortener(body.events[i]["description"]["text"]);
-          //descriptions from EventBrite have \n's sprinkled in, the below line will remove these
+          var description = textShortener(volBody.top_match_events[i]["description"]["text"]);
+          // descriptions from EventBrite have \n's sprinkled in, the below line will remove these
           description = description.replace(/(\r\n|\n|\r)/gm,"");
           output.push(description);
 
@@ -63,7 +76,7 @@ module.exports = {
               }
               return hours + minutes + "am";
           }
-            var dateAndTime = body.events[i]["start"]["local"];
+            var dateAndTime = volBody.top_match_events[i]["start"]["local"];
             var date = dateAndTime.slice(0, 10);
             var time = dateAndTime.slice(11, 16);
 
@@ -75,8 +88,8 @@ module.exports = {
       res.send(volOpsArray);
 
     })
-
-
+      }
+    })
   }
 
 }
