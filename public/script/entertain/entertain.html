@@ -5,10 +5,17 @@
 </div>-->
 
 
-<div ng-controller = "entertainController">
+<div ng-controller = "MovieController">
 
-  <li ng-repeat="movie in movieArray">
-      {{ movie }}
-  </li>
+  <ul ng-repeat="movie in movieArray">
+    <div class="title">
+      <h2>{{movie.title}}<h2> 
+      <br>
+      {{movie.description}}
+      <br>
+      {{movie.theatre}}
+    </div>
+    <br>
+  </ul>
 
 </div>

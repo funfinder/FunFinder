@@ -4,7 +4,7 @@
 //angular.module('name of this module', [array of injections like $scope])
 angular.module('funfinder.entertain.service',[])
 
-.factory('Movies', function () {
+.factory('Movies', function ($http) {
   var fetchMovies = function (callback) {
     return $http({
       method: 'GET',
