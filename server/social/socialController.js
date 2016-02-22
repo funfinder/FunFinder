@@ -48,7 +48,7 @@ module.exports={
         var endms=req.params.endTime.slice(1);
         console.log(beginms);
         console.log(endms);
-        var apiStr='https://api.meetup.com/2/open_events?key=562e4b82c1d1534424d481661495237&zip='+zip+'&time='+beginms+','+endms+'&radius=2&sign=true';
+        var apiStr='https://api.meetup.com/2/open_events?key=562e4b82c1d1534424d481661495237&zip='+zip+'&time='+beginms+','+endms+'&radius=10&sign=true';
         rp(apiStr).then(function(htmlStr){
             console.log(typeof htmlStr);
             htmlStr=JSON.parse(htmlStr);

@@ -35,6 +35,9 @@ angular.module('funfinder.social.controller',[])
 	    if (Array.isArray(data['data'])===false){
 	    	$scope.mydata=data['data'];
 	    }
+	    else{
+	    	$scope.mydata=data['data'];
+	    }
 	    
      
        });
