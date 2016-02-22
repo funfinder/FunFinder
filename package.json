@@ -25,7 +25,8 @@
     "angular-ui-router": "^0.2.18",
     "body-parser": "^1.15.0",
     "express": "^4.13.4",
-    "request": "^2.69.0"
+    "request": "^2.69.0",
+    "request-promise": "^2.0.1"
   },
   "devDependencies": {
     "browserify": "^13.0.0",

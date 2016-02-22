@@ -1,34 +1,48 @@
 angular.module('funfinder.social.controller',[])
-.controller('socialController',function($scope,GetReq){
-	$scope.begindate;
-	$scope.enddate;
-	$scope.zip;
-	$scope.radius;
-	$scope.grpname;
+.controller('socialController',function($scope,GetReq,$stateParams){
 
-	$scope.getByDates=function(){
-		 GetReq.retrieveByDate($scope.begindate,$scope.enddate).then(function(data){
+	var zip=$scope.searchQuery.location;
+	var date=$scope.searchQuery.dt;
+	console.log(zip,'zip');
+	console.log(date);
+	beginDate=new Date(date);
+	var endDate=new Date(date);
+	beginDate.setHours(00);
+	beginDate.setMinutes(00);
+	beginDate.setSeconds(00);
+	endDate.setHours(23);
+	endDate.setMinutes(59);
+	endDate.setSeconds(59);
+	console.log(beginDate);
+	console.log(endDate);
+	beginms=beginDate.getTime();
+	endms=endDate.getTime();
+	console.log(beginms);
+	console.log(endms);
+	$scope.mydata='';
 
-       	$scope.stock['data']=data['data'];
-       	console.log($scope.stock['data']);
+	// $scope.getData=function(){
+	//    GetReq.getMeetUp(city,state,beginms,endms).then(function(data){
+
+     
+ //       });
+	// };
+
+	$scope.getDataZip=function(){
+	   GetReq.getMeetUpZip(zip,beginms,endms).then(function(data){
+	   	console.log('inside client controller');
+	    console.log(data);
+	    if (Array.isArray(data['data'])===false){
+	    	$scope.mydata=data['data'];
+	    }
+	    else{
+	    	$scope.mydata=data['data'].slice(0,5);
+	    }
+	    
+     
        });
-
 	};
 
-	$scope.getByPlace=function(){
-		 GetReq.retrieveByPlace($scope.zip,$scope.radius).then(function(data){
-
-       	$scope.stock['data']=data['data'];
-       	console.log($scope.stock['data']);
-       });
-	};
-
-	$scope.getByGrp=function(){
-		GetReq.retrieveByGrp($scope.grpname).then(function(data){
-
-       	$scope.stock['data']=data['data'];
-       	console.log($scope.stock['data']);
-       });
-	};
+	$scope.getDataZip();
 
 });
