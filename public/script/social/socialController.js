@@ -36,7 +36,7 @@ angular.module('funfinder.social.controller',[])
 	    	$scope.mydata=data['data'];
 	    }
 	    else{
-	    	$scope.mydata=data['data'];
+	    	$scope.mydata=data['data'].slice(0,5);
 	    }
 	    
      

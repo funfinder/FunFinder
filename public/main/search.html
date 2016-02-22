@@ -1,0 +1,34 @@
+
+<div ng-controller="SearchController">
+    <div class="input-group">
+​
+    <table>
+      <tr>
+​
+        <td>
+        <div class = 'location'>
+        <input type="text" class="form-control" placeholder="Location" ng-model='searchQuery.location'>
+        </div>
+        </td>
+​
+        <td>
+        <div class = "date">
+          <input type="text" class="form-control" placeholder="Date" uib-datepicker-popup="{{format}}" ng-model="searchQuery.dt" is-open="datePicker.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+​
+          <button type="button" class="btn btn-default" ng-click="openDatePicker()"><i class="glyphicon glyphicon-calendar"></i></button>
+          </div>
+​
+        </td>
+​
+        <td>
+​
+          <button type='button' class='search' ng-click='search()'>Search</button>
+​
+        </td>
+​
+      </tr>
+    </table>
+  </div>
+
+
+</div>
