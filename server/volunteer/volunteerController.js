@@ -7,33 +7,43 @@ module.exports = {
     req.query;
 //the below request incorporates googleMaps API to convert zip code (input) into a city, since this API doesn't have a query for zip codes
     request('http://maps.googleapis.com/maps/api/geocode/json?address='+req.query.location+'&sensor=true',function(error, response, body){
-        if (!error && response.statusCode === 200) { 
+        if (!error && response.statusCode === 200) {
           body = JSON.parse(body);
           address = body.results[0].address_components[1].long_name;
 
     var APIcall = "https://www.eventbriteapi.com/v3/events/search/?token=YGAXTF3CVBJD74VGIJVL&q=%22volunteer%22&location.address=%"
     APIcall = APIcall+address;
 
-    request (APIcall, 
-    // request('https://www.eventbriteapi.com/v3/events/search/?token=YGAXTF3CVBJD74VGIJVL&q=%22volunteer%22&location.address=%22San%20Francisco%22', 
+    request (APIcall,
+    // request('https://www.eventbriteapi.com/v3/events/search/?token=YGAXTF3CVBJD74VGIJVL&q=%22volunteer%22&location.address=%22San%20Francisco%22',
 
     function(error, response, volBody) {
 
       if (!error && response.statusCode === 200) {
         var volOpsArray = [];
         volBody = JSON.parse(volBody);
-
+        var result =[];
         for (var i = 0; i < 5; i++) {
           var output = [];
+
           //push name of event to output array
-          output.push(volBody.top_match_events[i]["name"]["text"]);
+          if (volBody.events !== undefined)
+          {
+            result = volBody.events;
+          }
+          else if (volBody.top_match_events !== undefined)
+          {
+            result =volBody.top_match_events;
+          }
+
+          output.push(result[i]["name"]["text"]);
 
            //function to shorten descritions
-              var textShortener = function(x) { 
+              var textShortener = function(x) {
               if (x === " ") {
                 console.log("no text");
                 return "";
-              }         
+              }
                var clippedText = "";
                for (var i = 0; i < 200; i++) {
                 clippedText= clippedText + x[i];
@@ -43,7 +53,7 @@ module.exports = {
              };
              //push first 200 characters of description to output
 
-          var description = textShortener(volBody.top_match_events[i]["description"]["text"]);
+          var description = textShortener(result[i]["description"]["text"]);
           // descriptions from EventBrite have \n's sprinkled in, the below line will remove these
           description = description.replace(/(\r\n|\n|\r)/gm,"");
           output.push(description);
@@ -60,7 +70,7 @@ module.exports = {
               }
               return hours + minutes + "am";
           }
-            var dateAndTime = volBody.top_match_events[i]["start"]["local"];
+            var dateAndTime = result[i]["start"]["local"];
             var date = dateAndTime.slice(0, 10);
             var time = dateAndTime.slice(11, 16);
 
