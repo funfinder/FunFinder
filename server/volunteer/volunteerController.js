@@ -23,10 +23,10 @@ module.exports = {
         var volOpsArray = [];
         volBody = JSON.parse(volBody);
 
-        for (var i = 0; i < 5; i++) {
+        for (var i = 1; i < 6; i++) {
           var output = [];
           //push name of event to output array
-          output.push(volBody.top_match_events[i]["name"]["text"]);
+         output.push(volBody.top_match_events[i]["name"]["text"]);
 
            //function to shorten descritions
               var textShortener = function(x) { 
