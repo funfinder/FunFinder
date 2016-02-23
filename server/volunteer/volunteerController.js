@@ -22,11 +22,17 @@ module.exports = {
       if (!error && response.statusCode === 200) {
         var volOpsArray = [];
         volBody = JSON.parse(volBody);
+<<<<<<< HEAD
         var result =[];
         for (var i = 0; i < 5; i++) {
+=======
+
+        for (var i = 1; i < 6; i++) {
+>>>>>>> 8cec9549f3f7d0e0d55f6dd0c9fb4b013199c484
           var output = [];
 
           //push name of event to output array
+<<<<<<< HEAD
           if (volBody.events !== undefined)
           {
             result = volBody.events;
@@ -37,6 +43,9 @@ module.exports = {
           }
 
           output.push(result[i]["name"]["text"]);
+=======
+         output.push(volBody.top_match_events[i]["name"]["text"]);
+>>>>>>> 8cec9549f3f7d0e0d55f6dd0c9fb4b013199c484
 
            //function to shorten descritions
               var textShortener = function(x) {
