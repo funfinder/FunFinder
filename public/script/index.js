@@ -8,7 +8,8 @@ angular.module('funfinder', ['funfinder.entertain.controller',
   'funfinder.search',
   'funfinder.result',
   'ui.router',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'funfinder.social.filter'
   ])
 
 .config(function($stateProvider, $urlRouterProvider) {

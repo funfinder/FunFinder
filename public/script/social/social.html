@@ -1,8 +1,27 @@
 <div ng-controller = "socialController">
-<!--    <p>{{mydata}}</p> -->
-  <li ng-repeat="social in mydata">
-      {{ social }}
-  </li> 
+<!--    <p>{{mydata}}</p>  -->
+
+ <li ng-repeat="social in socialArr">
+ 
+ <div class="eachEvent">
+  <div class = "title">
+     <br>
+     <h3>{{ social['eventName'] }}</h3>
+   </div>
+     <br>
+
+     {{ social['description'] }}
+     <br><br>
+
+     <span>Date and Time : </span>{{ social['time'] | date:'yyyy-MM-dd h:mma' }}
+     <br><br>
+     {{ social['address'] }}
+     <br><br>
+      <a ng-href="{{social['url']}}">Go to Event WebPage!</a>
+      <br><br>
+ </li> 
+
+ </div>
 
 </div>
     

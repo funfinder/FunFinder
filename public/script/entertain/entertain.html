@@ -1,14 +1,19 @@
-<!--<div> do I need ng-controller here?  
+<div ng-controller = "MovieController">
+
+<!-- loop through movieArray and put each movie into an list element -->
   <li ng-repeat="movie in movieArray">
-    {{movie.title}} {{movie.theatre}} {{movie.description}}
-  </li>
-</div>-->
+    <div class="title">
+      <br>
+      <h3>{{movie.title}} </h3>
+    </div>
 
+      <br>
+      {{movie.description}}
+      <br><br>
 
-<div ng-controller = "entertainController">
-
-  <li ng-repeat="movie in movieArray">
-      {{ movie }}
+      {{movie.theatre}}
+      {{movie.time}}
+      <br><br>
   </li>
 
 </div>

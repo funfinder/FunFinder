@@ -4,11 +4,12 @@
 //angular.module('name of this module', [array of injections like $scope])
 angular.module('funfinder.entertain.service',[])
 
-.factory('Movies', function () {
-  var fetchMovies = function (callback) {
+.factory('Movies', function ($http) {
+  var fetchMovies = function (searchQuery,callback) {
     return $http({
       method: 'GET',
-      url: '/entertain/getAll'
+      url: '/entertain/getAll',
+      params: searchQuery
     })
     .then(function (resp) {
       return callback(resp.data);
