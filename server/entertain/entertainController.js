@@ -20,7 +20,7 @@ module.exports = {
         }
 
         body = JSON.parse(body)
-
+        if(body.length>0){
         //take max of 5 movies from the response and put into a movieArray
         for (var i = 0; i < 5; i++) {
           var movie = {};
@@ -33,7 +33,7 @@ module.exports = {
 
           movieArray.push(movie);
         }
-
+      }
         // console.log("this is the response from the server", body)
         res.send(movieArray)
       }

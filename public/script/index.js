@@ -21,10 +21,10 @@ angular.module('funfinder', ['funfinder.entertain.controller',
       url: '',
       views: {
         'main': {
-          templateUrl: "/main/main.html"
+          templateUrl: "/view/main.html"
         },
         'search@index':{
-          templateUrl : '/main/search.html'
+          templateUrl : '/view/search.html'
         }
       }
     })
@@ -34,19 +34,19 @@ angular.module('funfinder', ['funfinder.entertain.controller',
       url: '/result/:location?dt',
       views: {
         'main': {
-          templateUrl: "/main/result.html"
+          templateUrl: "/view/result.html"
         },
         "search@result": {
-          templateUrl: "/main/search.html"
+          templateUrl: "/view/search.html"
         },
         "entertain@result": {
-          templateUrl: "/script/entertain/entertain.html"
+          templateUrl: "/view/entertain.html"
         },
         "social@result": {
-          templateUrl: "/script/social/social.html"
+          templateUrl: "/view/social.html"
         },
         "volunteer@result": {
-          templateUrl: "/script/volunteer/volunteer.html"
+          templateUrl: "/view/volunteer.html"
         }
       }
     });
