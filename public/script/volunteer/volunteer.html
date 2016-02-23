@@ -1,0 +1,20 @@
+
+
+<div ng-controller = "VolunteerController">
+  
+  <li ng-repeat="item in volOpsArray">
+    <div class = "title">
+      <br>
+      <!-- title -->
+      <h3> {{ item[0] }} </h3>
+    </div>
+      <br>
+      <!-- 200 character description -->
+      {{ item[1] }}
+      <br><br>
+      <!-- date+time -->
+      {{ item[2] }}
+      <br><br>
+  </li>
+
+</div>

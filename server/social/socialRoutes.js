@@ -1,10 +1,11 @@
-var express = require('express');
-var router = express.Router();
+var controller=require('./socialController');
 
 /* GET users listing. */
-router.route('/')
-  .get(function(req, res, next) {
-  console.log('Entertainment Module')
-  res.send('Entertainment Module');
-});
-module.exports = router;
+
+
+//#Modify to use Dependency Injection from route.js
+module.exports = function(router) {
+  console.log("in social routes");
+ // router.get('/:city/:state/:beginTime/:endTime',controller.getAll);
+  router.get('/:zip/:beginTime/:endTime',controller.getAllZip);
+}

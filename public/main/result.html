@@ -1,0 +1,36 @@
+
+<div ng-controller="ResultController" class='container'>
+  <div ui-view='search'></div>
+  <div class="results">
+
+
+    <table>
+      <td>
+        <div class='module moduleTitle'>Entertainment</div>
+      </td>
+
+      <td>
+        <div class='module moduleTitle'>Volunteer</div>
+      </td>
+
+      <td>
+        <div class='module moduleTitle'>Social</div>
+      </td>
+
+    </table>
+
+    <table>
+      <td>
+          <div class = 'module' 'fill' ui-view='entertain'></div>
+      </td>
+
+      <td>
+          <div class = 'module' 'fill' ui-view='volunteer'></div>
+      </td>
+
+      <td>
+          <div class = 'module' 'fill' ui-view='social'></div>
+      </td>
+    </table>
+  </div>
+</div>
