@@ -2,9 +2,7 @@ var request = require('request');
 
 module.exports = {
   getAll: function(req, res, next) {
-
-    var date = req.query.dt.slice(0,11)
-
+      var date = req.query.dt.slice(0,10)
     request('http://data.tmsapi.com/v1.1/movies/showings?startDate=' + date + '&zip=' + req.query.location + '&api_key=4d9qk2nptvxkfg2bydfhrdrn', function(error, response, body) {
       console.log(error);
 
